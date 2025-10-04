@@ -1,56 +1,49 @@
-# WebSocketClient
+# WebSocket Client
 
-A robust and efficient client for handling WebSocket communications.
+A client-side application designed to connect and interact with a WebSocket server. This project is built using Vite, TypeScript, and the `socket.io-client` library.
 
 ## Overview
 
-This project provides a client-side implementation for establishing and managing a connection to a WebSocket server. It's designed to be straightforward to use while offering powerful features for real-time data exchange.
+This project provides the front-end interface for a real-time chat application. It handles the connection to a WebSocket server, authenticates using a JSON Web Token (JWT), and facilitates real-time communication.
 
 ## Features
 
-*   **Easy Connection Management:** Simple API to connect, disconnect, and auto-reconnect.
-*   **Message Handling:** Send and receive messages asynchronously.
-*   **Event-Driven:** Responds to open, close, error, and message events.
-*   **Secure Connections:** Supports `wss://` for secure WebSocket connections.
+*   **JWT Authentication:** Securely connect to the WebSocket server using a provided JWT.
+*   **Real-Time Status:** See the live connection status (Connected/Disconnected).
+*   **Connected Clients:** View a list of all clients currently connected to the server.
+*   **Messaging:** Send and receive messages in real-time.
+
+## Prerequisites
+
+*   [Node.js](https://nodejs.org/) installed on your machine.
+*   [Yarn](https://yarnpkg.com/) package manager.
+*   A running instance of the corresponding WebSocket server.
 
 ## Installation
 
-To use this client, clone the repository to your local machine:
+1.  Clone the repository to your local machine:
+    ```bash
+    git clone <repository-url>
+    ```
 
-```bash
-git clone <repository-url>
-```
+2.  Navigate to the project directory and install the dependencies:
+    ```bash
+    cd WebSocketClient
+    yarn install
+    ```
 
-*(Further installation steps would go here, e.g., `npm install`, `pip install -r requirements.txt`, etc.)*
+## Running the Application
 
-## Usage
+1.  Ensure the WebSocket server is running and accessible at `http://localhost:3000`.
 
-Below is a basic example of how to use the WebSocket client:
+2.  Run the client in development mode:
+    ```bash
+    yarn dev
+    ```
 
-```javascript
-// Example usage (assuming a JavaScript implementation)
+3.  Open your browser and navigate to the URL provided by Vite (usually `http://localhost:5173`).
 
-const client = new WebSocketClient('wss://your-websocket-server.com');
-
-client.on('open', () => {
-  console.log('Connection established!');
-  client.send('Hello, Server!');
-});
-
-client.on('message', (message) => {
-  console.log('Received:', message);
-});
-
-client.on('close', () => {
-  console.log('Connection closed.');
-});
-
-client.on('error', (error) => {
-  console.error('WebSocket Error:', error);
-});
-
-client.connect();
-```
+4.  To connect, enter a valid JWT into the input field and click the "Connect" button.
 
 ---
 *ltomassini*
